@@ -1,7 +1,6 @@
-import { AppBar, Button, Toolbar, Typography } from '@mui/material'
-import { Box } from '@mui/system'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { AppBar, Box, Button, Typography,Toolbar,React } from "@mui/material"
+import { Link } from "react-router-dom"
+
 
 const Navbar = () => {
   return (

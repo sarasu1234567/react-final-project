@@ -3,7 +3,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 
 
-const Addstudent = (props) => {
+const Addbook = (props) => {
   var [input, setInput] = useState(props.data)
   console.log("add page props" + props.data)
 
@@ -15,7 +15,7 @@ const Addstudent = (props) => {
     console.log("clicked")
     console.log(input);
     if (props.method === "post") {
-      axios.post("http://localhost:3005/students", input)
+      axios.post("http://localhost:3005/books", input)
         .then((response) => {
           console.log("post data" + response.data)
           alert("success")
@@ -25,7 +25,7 @@ const Addstudent = (props) => {
         })
 
     } else if (props.method === "put") {
-      axios.put("http://localhost:3005/students/" + input.id, input)
+      axios.put("http://localhost:3005/books/" + input.id, input)
         .then((response) => {
           console.log("put data" + response.data)
           alert("success")
@@ -40,7 +40,11 @@ const Addstudent = (props) => {
     <div>
       <TextField label='Name' name='name' variant='outlined' value={input.name} onChange={inputHandler} />
       <br></br>
-      <TextField label='Grade' name='grade' variant='outlined' value={input.grade} onChange={inputHandler} />
+      
+      <TextField label='auother' name='author' variant='outlined' value={input.grade} onChange={inputHandler} />
+      <br></br>
+
+      <TextField label='genere' name='genre' variant='outlined' value={input.grade} onChange={inputHandler} />
       <br></br>
       <Button variant='contained' onClick={readValues} color='success'>submit</Button>
 
@@ -51,4 +55,4 @@ const Addstudent = (props) => {
     </div>
   )
 }
-export default Addstudent
+export default Addbook

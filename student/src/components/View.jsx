@@ -1,16 +1,15 @@
 import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import Addstudent from './Addstudent'
+import Addstudent from './Addbook'
 
 const View = () => {
-  var [students, setStudents] = useState([])
   var [update, setUpdate] = useState(false)
   var [selected, setSelected] = useState([])
   useEffect(() => {
-    axios.get("http://localhost:3005/students")
+    axios.get("http://localhost:3005/books")
       .then(response => {
-        setStudents(students = response.data)
+        setBooks(setBooks = response.data)
         console.log(response.data)
       })
       .catch(error => console.log(error))
@@ -22,7 +21,7 @@ const View = () => {
   }
   const deleteValues = (id) => {
     console.log("delete clicked" + id)
-    axios.delete("http://localhost:3005/students/" + id)
+    axios.delete("http://localhost:3005/books/" + id)
       .then((response) => {
         console.log(response.idvalue);
         alert("sucessfully deleted");
@@ -38,9 +37,9 @@ const View = () => {
 
 
 
-          <TableCell>Id</TableCell>
-          <TableCell>Name</TableCell>
-          <TableCell>Grade</TableCell>
+          <TableCell>GENRE</TableCell>
+          <TableCell>BOOK</TableCell>
+          <TableCell>PUBLISHED BY</TableCell>
           <TableCell>Delete</TableCell>
           <TableCell>Update</TableCell>
 
